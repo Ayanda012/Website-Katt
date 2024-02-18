@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<br><br><br>
+
+<div class="container">
+
+    <h1>Generate Quotation</h1>
+    <p>Select a package and customize your plan:</p>
+    <form action="{% url 'quotation' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Quotation</button>
+    </form>
+</div>
+
+{% endblock %}

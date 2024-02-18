@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-xl-6 col-lg-8">
+            <h1>Algorithm Results from</h1>
+            <h2>
+                    {% for index, row in daily_dataframe.iterrows %}
+                        {% if forloop.first %}
+                            <span style="color: #ffc451;">{{ row.date|date:"j F Y" }}</span>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    - 
+                    
+                    {% for index, row in daily_dataframe.iterrows %}
+                        {% if forloop.last %}
+                            <span style="color: #ffc451;">{{ row.date|date:"j F Y" }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            </h2>
+        </div>
+    </div>
+      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="mouse_scroll">
+            <div class="mouse">
+              <div class="wheel"></div>
+            </div>
+            <div>
+              <span class="m_scroll_arrows unu"></span>
+              <span class="m_scroll_arrows doi"></span>
+              <span class="m_scroll_arrows trei"></span>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="chart" id="chart"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.2/apexcharts.min.js"></script>
+<script>
+    var potentialSolarEnergyData = {{ potential_solar_energy_data|safe }};
+    var categories = {{ categories|safe}};
+     var options = {
+          series: [{
+            name: "Potential Solar Energy",
+            data: potentialSolarEnergyData,
+        }],
+          chart: {
+          height: 400,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        colors: ['#ffc451'],
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Potential Solar Energy For the next 7 Days',
+          align: 'center'
+        },
+        xaxis: {
+          categories: categories,
+        },
+        yaxis: {
+            labels: {
+                formatter: function (value) {
+                return value.toFixed(2);
+                },
+            },
+            min: 0,
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          y: {
+            formatter: function (y) {
+              if (typeof y !== "undefined") {
+                return y.toFixed(2) + " kWh";
+              }
+              return y;
+        
+            }
+          }
+        },
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>
+{% endblock %}
