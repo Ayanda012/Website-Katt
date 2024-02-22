@@ -1,0 +1,67 @@
+{% load static %}
+
+{% block content %}
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container-border {
+      border: 1px solid orange;
+      padding: 20px;
+      margin: 20px;
+    }
+    h2{
+      color: orange;
+    }
+  </style>
+  <img src="{% static 'img\sunsmartsa.png' %}" class="img-rounded logo">
+</head>
+<body>
+  <div class="container-border">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-bag"></i></div>
+          <h2>Installation</h2>
+          <p>Embark on a sunny adventure with solar energy installation! Here are the best Solar Energy Companies</p>
+          <h4><a href="{% url 'ref1' %}">Check</a></h4>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box">
+          <h2>Consultation and Assessment</h2>
+          <p>Think of consultation as your personalized solar roadmap, where we help you navigate the sunny possibilities, while assessment shines a spotlight on your unique space, uncovering its solar potential with precision</p>
+          <p>Here are the best Solar Energy Companies for Consultation and Assessment </p>
+          <h4><a href="{% url 'ref2' %}">Check</a></h4>
+          <div class="icon"><i class="bi bi-speedometer2"></i></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-robot"></i></div>
+          <h2>Design and Engineering</h2>
+          <p>Design is the blueprint of your solar dreams, where we sculpt the vision of your sustainable future, while engineering is the powerhouse behind the scenes, crafting the intricate gears that turn sunlight into energy magic.</p>
+          <p>Here are the best Solar Energy Companies for Design and Engineering</p>
+          <h4><a href="{%url 'ref3'%}">Check</a></h4>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-robot"></i></div>
+          <h2>Maintenance and Repairs</h2>
+          <p>Maintenance is the gentle caretaker of your solar sanctuary, ensuring each panel basks in brilliance year-round, while repairs are the swift superheroes swooping in to restore any unexpected glitches, keeping your renewable energy journey shining bright.</p>
+          <p>Here are the best Solar Energy Companies for Maintenance and Repairs </p>
+          <h4><a href="{%url 'ref4'%}">Check</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{%endblock%}
+</html>

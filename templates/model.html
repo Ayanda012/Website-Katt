@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <form action="{% url 'predict' %}" method="get">
+      <label for="x">Enter a value:</label>
+      <input type="text" id="x" name="x[]">
+      <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+    <script>
+      const form = document.querySelector('form');
+      const result = document.querySelector('#result');
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+        });
+        const data = await response.json();
+        result.textContent = `Prediction: ${data.prediction}`;
+      });
+    </script>
+  </body>
+</html>

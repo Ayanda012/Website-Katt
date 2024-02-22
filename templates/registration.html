@@ -1,19 +1,38 @@
 {% load static %}
 {% block content %}
 <head>
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
-</head>
- <h2>Register</h2>
+   <title>Sign Up</title>
+   <link href="{% static 'css/login.css' %}" rel="stylesheet">
+   
+   
+ <h2>Signup</h2>
  <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Register</button>
+    <button type="submit">Sign Up</button>
+    <br><br>
+    <li><a href="{% url 'login' %}">Have an account? Login</a></li>
  </form>
  <ul>
-           
-   <li><a href="{% url 'login' %}">Have an account? Login</a></li>
-   <li><a href="{% url 'register' %}">Don't have an account? Register</a></li>
-   
+   <style >
+
+      body {
+          background: url('{% static "img/hero-bg.jpg" %}');
+          background-size: cover;
+          background-position: center;
+      }
+      
+      form{
+          border: 5px solid orange;
+      }
+      h2{
+          color: orange;
+      }
+      
+      /* Add other styles here as needed */
+      </style>
+      
+      </html>
 
 </ul>
 {% endblock %}

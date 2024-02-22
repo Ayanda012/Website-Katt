@@ -13,7 +13,14 @@ from .forms import RegistrationForm, LoginForm
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Home, EnergyReading, SolarReading
+from django.http import HttpResponse
+import pickle
+import json
+import joblib
+from django.http import JsonResponse
+from sklearn.ensemble import RandomForestClassifier
+
+
 
 
 # Create your views here.
@@ -25,13 +32,9 @@ def equipment(request):
 
     return render(request, 'extra/equipment.html')
 
-def dashboard(request):
-
-    return render(request, 'extra/user_dashboard.html')
-
 def recommendations(request):
 
-    return render(request, 'extra/tailored_recommendations.html')
+    return render(request, 'tailored_recommendations.html')
 
 def prediction(request):
 
@@ -104,8 +107,9 @@ def register_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
             return redirect('login')
     else:
         form = RegistrationForm()
@@ -126,14 +130,109 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 def main (request):
+   
     return render(request,'index.html')
 
+from django.shortcuts import render
+from .forms import ContactForm
 
-def user_dashboard(request, home_id):
-    home = Home.objects.get(id=home_id)
-    energy_readings = EnergyReading.objects.filter(home=home).order_by('-timestamp')
-    solar_readings = SolarReading.objects.filter(home=home).order_by('-timestamp')
-    return render(request, 'user_ dashboard.html', {'home': home, 'energy_readings': energy_readings, 'solar_readings': solar_readings})
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save the form data to the database or send an email
+            pass
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
+def page1(request):
+
+    return render(request,'page1.html')
+def page2(request):
+
+    return render(request,'page2.html')
+def page3(request):
+
+    return render(request,'page3.html')
+def page4(request):
+
+    return render(request,'page4.html')
+def page5(request):
+
+    return render(request,'page5.html')
+def page6(request):
+
+    return render(request,'page6.html')
+def page7(request):
+
+    return render(request,'page7.html')
+def faq(request):
+
+    return render(request,'faq.html')
+
+def load_model(request):
+    with open('main/model/HateSpeechD_Model.pkl', 'rb') as f:
+        model = pickle.load(f)
+    return HttpResponse("Model loaded successfully!")
+
+def results(request):
+    return render(request,'results.html')
+def Quotation1(request):
+    return render(request,'Quotation1.html')
+
+def Quotation2(request):
+    return render(request,'Quotation2.html')
+
+def Quotation3(request):
+
+    return render(request,'Quotation3.html')
 
 
+def consultation(request):
+
+    return render(request,'consultation.html')
+def design(request):
+
+    return render(request,'ref1.html')
+
+def installation(request):
+
+    return render(request,'ref2.html')
+def maintenance(request):
+
+    return render(request,'ref3.html')
     
+def ref4(request):
+
+    return render(request,'ref4.html')
+def page8(request):
+
+    return render(request,'page8.html')
+def page9(request):
+
+    return render(request,'page9.html')
+
+
+import pickle
+
+def model(request):
+    def predict(request):
+    # load model from JSON file
+     with open('model_params.json', 'r') as json_file:
+        model_params = json.load(json_file)
+
+    # create a new model with the loaded parameters
+    loaded_model = joblib.load('HateSpeechD_Model.pkl')
+
+    # load test data from request
+    X_test = request.GET.getlist('x[]', [])
+    X_test = [float(x) for x in X_test]
+
+    # make prediction
+    y_predict = loaded_model.predict([X_test])
+
+    # return prediction as JSON
+    return JsonResponse({'prediction': y_predict[0]})
+    # Use the model to make predictions
+
+

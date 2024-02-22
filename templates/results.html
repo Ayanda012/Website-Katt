@@ -1,0 +1,118 @@
+
+
+
+{% load static %}
+
+{% block content %}
+<html>
+<head>
+
+   
+  <img src="{% static 'img\sunsmartsa.png' %}" class="img-rounded logo">
+   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+   <style>
+   .container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container  {
+    width: 120%;
+}
+.container{
+    width: 120%;
+    border: 1px solid orange;
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+} 
+.container  p:not(:last-child) {
+    border-top: 5px solid orange;
+    border-style:solid orange;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.container:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+</style>
+</head>
+<div class="container">
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+      <div class="icon-box">
+        <div class="icon"><i class="bi bi-bag"></i></div>
+        <h2>Grid-Tied</h2>
+        <p> Grid-tied systems are the most common and cost-effective solar power solution.</p>
+        <p>They are directly connected to the local electrical grid, allowing any excess power generated during the day to be fed back into the grid. </p>
+        <p>Through net metering programs, you can receive credits for this excess power, offsetting some of your energy costs.</p>
+        <h4><a href="">Cost</button></a></h4>
+        <p style="margin: 0;">Cost on average ranges between <span style="border-bottom: 1px solid #ccc;">R60 000</span> and over <span style="border-bottom: 1px solid #ccc;">R250 000</span>.</p>
+        <p style="margin: 0;">Cost is determined by:</p>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li style="margin-bottom: 5px;">Solar Size (in kW)</li>
+            <li style="margin-bottom: 5px;">System Type</li>
+            <li style="margin-bottom: 5px;">Invertor Type</li>
+            <li style="margin-bottom: 5px;">Installation Complexity</li>
+        </ul>
+        <p style="margin: 0;">Grid-tied systems are the most common and cost-effective solar power solution. They are directly connected to the local electrical grid, allowing any excess power generated during the day to be fed back into the grid. Through net metering programs, you can receive credits for this excess power, offsetting some of your energy costs.</p>
+      </div>
+    </div>
+
+    <div class="container">
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+      <div class="icon-box">
+        <h2>Off-Grid</h2>
+        
+        <p>Off-grid solar systems are also common but less prevalent than grid-tied systems. 
+             The energy generated is stored in batteries for use during the night or on cloudy days when solar production is low.
+        </p>
+        <p>They are completely disconnected from the power grid and rely solely on solar power for electricity generation.</p>
+        <p>Off-grid systems are more expensive than grid-tied systems due to the cost of batteries and additional components required for energy storage.</p>
+        <h4><a href="">Cost</a></h4>
+        <h2>Rate</h2>
+    <p style="margin: 0;">Cost on average ranges between <span style="border-bottom: 1px solid #ccc;">R60 000</span> and over <span style="border-bottom: 1px solid #ccc;">R250 000</span>.</p>
+    <p style="margin: 0;">Cost is determined by:</p>
+    <ul style="margin: 0; padding-left: 20px;">
+        <li style="margin-bottom: 5px;">Solar Size (in kW)</li>
+        <li style="margin-bottom: 5px;">System Type</li>
+        <li style="margin-bottom: 5px;">Invertor Type</li>
+        <li style="margin-bottom: 5px;">Installation Complexity</li>
+    </ul>
+    <p style="margin: 0;">Off-Grid: More expensive due to the cost of batteries and additional components required for energy storage. Cost ranges between <span style="border-bottom: 1px solid #ccc;">R150 000</span> and <span style="border-bottom: 1px solid #ccc;">R350 000</span></p>
+    <p style="margin: 0;">5kW solar system ranges between <span style="border-bottom: 1px solid #ccc;">R70 000</span> and <span style="border-bottom: 1px solid #ccc;">R140 000</span>. Note a 10kW system produces on average 40-50kWh of power a day, enough to power two small families or one large family.</p>
+        <div class="icon"><i class="bi bi-speedometer2"></i></div>
+      </div>
+    </div>
+
+    <div class="container">
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+      <div class="icon-box">
+        <div class="icon"><i class="bi bi-robot"></i></div>
+        <h2>Hybrid</h2>
+        <p> Hybrid systems combine features of both grid-tied and off-grid systems.</p>
+        <p>They are connected to the grid but also have battery storage for backup power</p>
+        <p>These systems generate power during the day, storing excess energy in the battery. If there is excess energy left in the battery, it can be directed back into the grid like grid-tied systems.</p>
+        <p>During cloudy days or power outages, the stored power can be used to power home appliances. </p>
+        <h4><a href="">Cost</a></h4>
+        <h2>Rate</h2>
+       
+        <p style="margin: 0;">Cost on average ranges between <span style="border-bottom: 1px solid #ccc;">R60 000</span> and over <span style="border-bottom: 1px solid #ccc;">R250 000</span>.</p>
+        <p style="margin: 0;">Cost is determined by:</p>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li style="margin-bottom: 5px;">Solar Size (in kW)</li>
+            <li style="margin-bottom: 5px;">System Type</li>
+            <li style="margin-bottom: 5px;">Invertor Type</li>
+            <li style="margin-bottom: 5px;">Installation Complexity</li>
+        </ul>
+        <p style="margin: 0;">Hybrid System: Combines the 2 above, i.e. connected to the grid with power stored kicking in during cloudy days & power outages. Also feeds the grid. Due to its nature, it is less costly than Off-Grid yet slightly more than grid-tied solar systems.</p>
+        <p style="margin: 0;">5kW solar system ranges between <span style="border-bottom: 1px solid #ccc;">R70 000</span> and <span style="border-bottom: 1px solid #ccc;">R140 000</span>. Note a 10kW system produces on average 40-50kWh of power a day, enough to power two small families or one large family.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+</html>
